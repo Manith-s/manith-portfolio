@@ -1,0 +1,188 @@
+import React from 'react';
+import { motion } from 'framer-motion';
+import { Calendar, ArrowUpRight, Github } from 'lucide-react';
+
+const Projects = () => {
+  // Projects data from resume
+  const projectsData = [
+    {
+      title: "Web-based Smart Hydroponic System",
+      period: "October 2021 - June 2022",
+      description: "Created an IoT-integrated web application using Python, Embedded C, and JavaScript to predict crop yields with 85% accuracy using a random forest model, leveraging real-time sensor data on environmental and soil parameters for predictive analytics and optimization.",
+      technologies: ["Python", "IoT", "JavaScript", "Machine Learning", "Random Forest"],
+      link: "#",
+      github: "#",
+      image: "hydroponic-system.jpg"
+    },
+    {
+      title: "Bitcoin Price Prediction",
+      period: "November 2021 - December 2021",
+      description: "Programmed a machine learning model using reinforcement learning and ensemble techniques to forecast Bitcoin price trends with 74% accuracy, leveraging time-series forecasting, regression analysis, and historical data to enhance financial insights and predictive performance.",
+      technologies: ["Python", "Reinforcement Learning", "Time-Series Analysis", "Data Visualization"],
+      link: "#",
+      github: "#",
+      image: "bitcoin-prediction.jpg"
+    },
+    {
+      title: "Advanced Commercial Banking System Enhancement",
+      period: "June 2022 - January 2024",
+      description: "Led development of critical enhancements to ACBS using LANSA and C#, optimizing commercial lending workflows while ensuring compliance with banking regulations and global financial standards. Implemented automated validation routines and enhanced financial calculation engines.",
+      technologies: ["LANSA", "C#", "Financial Systems", "Banking Software", "System Integration"],
+      link: "#",
+      github: "#",
+      image: "banking-system.jpg"
+    },
+    {
+      title: "University Course Scheduling System",
+      period: "January 2025 - Present",
+      description: "Developing a full-stack scheduling system using JavaScript, Node.js, Express.js and PostgreSQL that manages course offerings through RESTful APIs. Created an advanced scheduling algorithm using Python that enforces complex dependencies and reduces conflicts.",
+      technologies: ["JavaScript", "Node.js", "React", "PostgreSQL", "Python", "Algorithm Design"],
+      link: "#",
+      github: "#",
+      image: "scheduling-system.jpg"
+    }
+  ];
+
+  // Framer Motion variants
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.2
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { y: 30, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: { duration: 0.5, ease: "easeOut" }
+    }
+  };
+
+  return (
+    <section id="projects" className="py-20 bg-dark-950">
+      <div className="container mx-auto px-4">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="text-center mb-16"
+        >
+          <div className="inline-block mb-2">
+            <span className="inline-block py-1 px-3 rounded-full text-sm font-medium bg-primary-600/20 text-primary-400">
+              My Projects
+            </span>
+          </div>
+          <h2 className="text-4xl font-bold mb-4 text-white">
+            Featured <span className="text-primary-400">Projects</span>
+          </h2>
+          <p className="text-gray-300 max-w-2xl mx-auto">
+            Applying my skills to solve real-world problems through innovative solutions.
+          </p>
+        </motion.div>
+
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+          variants={containerVariants}
+          className="grid grid-cols-1 md:grid-cols-2 gap-8"
+        >
+          {projectsData.map((project, index) => (
+            <motion.div
+              key={index}
+              variants={itemVariants}
+              className="group"
+            >
+              <div className="relative bg-dark-800 rounded-xl overflow-hidden border border-dark-700 hover:border-primary-600/30 transition-all h-full flex flex-col">
+                {/* Project header with gradient overlay */}
+                <div className="h-48 relative overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary-600/20 to-secondary-600/20"></div>
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="text-center">
+                      <h3 className="text-2xl font-bold text-white mb-2 px-4">{project.title}</h3>
+                      <div className="flex items-center justify-center text-sm text-primary-300">
+                        <Calendar size={14} className="mr-1" />
+                        <span>{project.period}</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Project content */}
+                <div className="p-6 flex flex-col flex-grow">
+                  <p className="text-gray-300 mb-6">{project.description}</p>
+                  
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {project.technologies.map((tech, techIndex) => (
+                      <span
+                        key={techIndex}
+                        className="px-3 py-1 bg-dark-700 text-primary-300 rounded-full text-xs"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                  
+                  <div className="mt-auto flex justify-between">
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-primary-400 transition-colors"
+                    >
+                      <Github size={16} />
+                      <span>Source Code</span>
+                    </a>
+                    
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 text-sm text-primary-400 hover:text-primary-300 transition-colors group"
+                    >
+                      <span>View Project</span>
+                      <ArrowUpRight size={14} className="transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
+        
+        {/* Call to action for more projects */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="mt-12 text-center"
+        >
+          <p className="text-gray-300 mb-6">
+            These are just a few highlights from my portfolio. 
+            I'm constantly working on new projects and enhancing my skills.
+          </p>
+          
+          <a
+            href="https://github.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-dark-800 border border-primary-500 rounded-lg text-primary-400 hover:bg-primary-900/20 transition-all"
+          >
+            <Github size={18} />
+            <span>View More on GitHub</span>
+          </a>
+        </motion.div>
+      </div>
+    </section>
+  );
+};
+
+export default Projects;
