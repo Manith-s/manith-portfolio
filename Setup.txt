@@ -3,7 +3,8 @@ npx tailwindcss init -p
 npm install @emailjs/browser
 
 git add .
-git commit -m "Update portfolio content"
+git commit -m "Updated changes 1.6"
 git push origin main
 
+npm run build
 npm run deploy
