@@ -1,16 +1,15 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Calendar, ArrowUpRight, Github } from 'lucide-react';
+import { Calendar, Github } from 'lucide-react';
 
 const Projects = () => {
-  // Projects data from resume
+  // Projects data from resume - removed "Advanced Commercial Banking System Enhancement"
   const projectsData = [
     {
       title: "Web-based Smart Hydroponic System",
       period: "October 2021 - June 2022",
       description: "Created an IoT-integrated web application using Python, Embedded C, and JavaScript to predict crop yields with 85% accuracy using a random forest model, leveraging real-time sensor data on environmental and soil parameters for predictive analytics and optimization.",
       technologies: ["Python", "IoT", "JavaScript", "Machine Learning", "Random Forest"],
-      link: "#",
       github: "#",
       image: "hydroponic-system.jpg"
     },
@@ -19,26 +18,15 @@ const Projects = () => {
       period: "November 2021 - December 2021",
       description: "Programmed a machine learning model using reinforcement learning and ensemble techniques to forecast Bitcoin price trends with 74% accuracy, leveraging time-series forecasting, regression analysis, and historical data to enhance financial insights and predictive performance.",
       technologies: ["Python", "Reinforcement Learning", "Time-Series Analysis", "Data Visualization"],
-      link: "#",
       github: "#",
       image: "bitcoin-prediction.jpg"
-    },
-    {
-      title: "Advanced Commercial Banking System Enhancement",
-      period: "June 2022 - January 2024",
-      description: "Led development of critical enhancements to ACBS using LANSA and C#, optimizing commercial lending workflows while ensuring compliance with banking regulations and global financial standards. Implemented automated validation routines and enhanced financial calculation engines.",
-      technologies: ["LANSA", "C#", "Financial Systems", "Banking Software", "System Integration"],
-      link: "#",
-      github: "#",
-      image: "banking-system.jpg"
     },
     {
       title: "University Course Scheduling System",
       period: "January 2025 - Present",
       description: "Developing a full-stack scheduling system using JavaScript, Node.js, Express.js and PostgreSQL that manages course offerings through RESTful APIs. Created an advanced scheduling algorithm using Python that enforces complex dependencies and reduces conflicts.",
       technologies: ["JavaScript", "Node.js", "React", "PostgreSQL", "Python", "Algorithm Design"],
-      link: "#",
-      github: "#",
+      github: "https://github.com/Manith-s/University-Scheduler-",
       image: "scheduling-system.jpg"
     }
   ];
@@ -130,25 +118,15 @@ const Projects = () => {
                     ))}
                   </div>
                   
-                  <div className="mt-auto flex justify-between">
+                  <div className="mt-auto flex justify-center">
                     <a
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-primary-400 transition-colors"
+                      className="inline-flex items-center gap-2 text-sm text-primary-400 hover:text-primary-300 transition-colors"
                     >
                       <Github size={16} />
                       <span>Source Code</span>
-                    </a>
-                    
-                    <a
-                      href={project.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 text-sm text-primary-400 hover:text-primary-300 transition-colors group"
-                    >
-                      <span>View Project</span>
-                      <ArrowUpRight size={14} className="transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                     </a>
                   </div>
                 </div>
@@ -157,7 +135,7 @@ const Projects = () => {
           ))}
         </motion.div>
         
-        {/* Call to action for more projects */}
+        {/* Call to action for more projects - Updated GitHub link */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -171,7 +149,7 @@ const Projects = () => {
           </p>
           
           <a
-            href="https://github.com"
+            href="https://github.com/Manith-s"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3 bg-dark-800 border border-primary-500 rounded-lg text-primary-400 hover:bg-primary-900/20 transition-all"

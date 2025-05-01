@@ -8,13 +8,13 @@ const Skills = () => {
     {
       category: "Programming",
       icon: <Code size={24} />,
-      skills: ["Java", "Python", "C++", "C#", "JavaScript", "TypeScript", "R", "SAS"],
+      skills: ["Java", "Python", "C++", "C#", "JavaScript", "TypeScript", "R", "SAS", "LANSA (RDML)"],
       color: "from-blue-500 to-blue-700"
     },
     {
       category: "Web Development",
       icon: <Monitor size={24} />,
-      skills: ["React", "Node.js", "Express.js", ".NET", "RESTful APIs", "Sequelize"],
+      skills: ["React", "Node.js", "Express.js", ".NET", "RESTful APIs", "Sequelize", "Visual LANSA"],
       color: "from-green-500 to-green-700"
     },
     {
