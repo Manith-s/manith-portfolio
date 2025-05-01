@@ -288,7 +288,7 @@ const Hero = () => {
               {/* "View Projects" button removed as requested */}
               
               <a 
-                href="/resume.pdf" 
+                href={`${process.env.PUBLIC_URL}/resume.pdf`} 
                 download="Manith_Shashidhar_Resume.pdf"
                 className="px-8 py-3 rounded-full bg-transparent border border-secondary-500 text-secondary-400 font-medium hover:bg-secondary-500/10 transition-all duration-300 transform hover:-translate-y-1 flex items-center gap-2"
               >
