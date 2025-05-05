@@ -8,8 +8,8 @@ const Projects = () => {
     {
       title: "HydroYield: Smart Hydroponic Crop Yield Prediction System",
       period: "October 2021 - June 2022",
-      description: "Developed an intelligent system for hydroponic farming that collects environmental data from IoT sensors, processes it using machine learning models (97-99% accuracy), and provides crop recommendations and yield predictions. Implemented a Flask-based backend with MongoDB for data storage and a comprehensive REST API.",
-      technologies: ["Python", "Flask", "IoT", "MongoDB", "Machine Learning", "Random Forest"],
+      description: "Created an IoT-integrated web application using Python, Embedded C, and JavaScript to predict crop yields with 85% accuracy using scikit learn Random Forest algorithms, leveraging real-time sensor data on environmental and soil parameters for predictive analytics.",
+      technologies: ["Python", "Javascript", "IoT", "Machine Learning", "Random Forest"],
       github: "https://github.com/Manith-s/HydroYield",
       image: "hydroponic-system.jpg"
     },
