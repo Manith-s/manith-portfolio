@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-scroll';
-import { ChevronDown, Download } from 'lucide-react';
+import { ChevronDown, Download, Github, Linkedin } from 'lucide-react';
 
 // Image paths to try
 const IMAGE_PATHS = [
@@ -10,9 +10,54 @@ const IMAGE_PATHS = [
   `${process.env.PUBLIC_URL}/profile-photo.jpg`,
 ];
 
+// Array of job titles to cycle through
+const JOB_TITLES = [
+  "Software Engineer",
+  "Business Analyst",
+  "Data Analyst"
+];
+
 const Hero = () => {
   const canvasRef = useRef(null);
   const [imagePath, setImagePath] = useState(null);
+  const [displayText, setDisplayText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [currentTitleIndex, setCurrentTitleIndex] = useState(0);
+  const [typingSpeed, setTypingSpeed] = useState(50);
+
+  // Typewriter effect
+  useEffect(() => {
+    const currentTitle = JOB_TITLES[currentTitleIndex];
+    
+    const typeEffect = () => {
+      if (isDeleting) {
+        // Deleting text
+        setDisplayText(currentTitle.substring(0, displayText.length - 1));
+        setTypingSpeed(20); // Much faster when deleting
+        
+        // When done deleting, move to next title
+        if (displayText === "") {
+          setIsDeleting(false);
+          setCurrentTitleIndex((prevIndex) => (prevIndex + 1) % JOB_TITLES.length);
+          setTypingSpeed(50);
+        }
+      } else {
+        // Typing text
+        setDisplayText(currentTitle.substring(0, displayText.length + 1));
+        
+        // When done typing, pause then start deleting
+        if (displayText === currentTitle) {
+          setTimeout(() => {
+            setIsDeleting(true);
+          }, 1200); // Shorter pause (1.2 seconds) when fully typed
+          return;
+        }
+      }
+    };
+    
+    const timer = setTimeout(typeEffect, typingSpeed);
+    return () => clearTimeout(timer);
+  }, [displayText, isDeleting, currentTitleIndex, typingSpeed]);
 
   // Try to load image from different paths
   useEffect(() => {
@@ -144,8 +189,6 @@ const Hero = () => {
   // Personal details
   const personalInfo = {
     name: "Manith Shashidhar",
-    title: "Software Engineer & Business/Data Analyst",
-    // Removed the description as requested
   };
 
   // Animation variants for text elements
@@ -264,9 +307,14 @@ const Hero = () => {
             
             <motion.h2 
               variants={itemVariants}
-              className="text-2xl md:text-3xl font-semibold mb-8 text-gray-200"
+              className="text-2xl md:text-3xl font-semibold mb-8 text-gray-200 h-16"
             >
-              {personalInfo.title}
+              <span className="relative inline-block">
+                {/* Main text with gradient */}
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary-400 to-secondary-500 font-bold">
+                  {displayText}
+                </span>
+              </span>
             </motion.h2>
             
             <motion.div 
@@ -285,15 +333,35 @@ const Hero = () => {
                 </button>
               </Link>
               
-              {/* "View Projects" button removed as requested */}
-              
               <a 
                 href={`${process.env.PUBLIC_URL}/resume.pdf`} 
                 download="Manith_Shashidhar_Resume.pdf"
                 className="px-8 py-3 rounded-full bg-transparent border border-secondary-500 text-secondary-400 font-medium hover:bg-secondary-500/10 transition-all duration-300 transform hover:-translate-y-1 flex items-center gap-2"
               >
                 <Download size={18} />
-                <span>Download Resume</span>
+                <span>Resume</span>
+              </a>
+              
+              {/* LinkedIn Button */}
+              <a 
+                href="https://www.linkedin.com/in/manith-shashidhar-9462181ba"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-5 py-3 rounded-full bg-transparent border border-blue-500 text-blue-400 font-medium hover:bg-blue-500/10 transition-all duration-300 transform hover:-translate-y-1 flex items-center gap-2"
+              >
+                <Linkedin size={18} />
+                <span>LinkedIn</span>
+              </a>
+              
+              {/* GitHub Button */}
+              <a 
+                href="https://github.com/Manith-s"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-5 py-3 rounded-full bg-transparent border border-gray-400 text-gray-300 font-medium hover:bg-gray-500/10 transition-all duration-300 transform hover:-translate-y-1 flex items-center gap-2"
+              >
+                <Github size={18} />
+                <span>GitHub</span>
               </a>
             </motion.div>
           </div>

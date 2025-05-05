@@ -1,25 +1,35 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Calendar, Github } from 'lucide-react';
+import { Calendar, Github, BarChart2, ExternalLink } from 'lucide-react';
 
 const Projects = () => {
-  // Projects data from resume - removed "Advanced Commercial Banking System Enhancement"
+  // Updated projects data with new names, links and descriptions
   const projectsData = [
     {
-      title: "Web-based Smart Hydroponic System",
+      title: "HydroYield: Smart Hydroponic Crop Yield Prediction System",
       period: "October 2021 - June 2022",
-      description: "Created an IoT-integrated web application using Python, Embedded C, and JavaScript to predict crop yields with 85% accuracy using a random forest model, leveraging real-time sensor data on environmental and soil parameters for predictive analytics and optimization.",
-      technologies: ["Python", "IoT", "JavaScript", "Machine Learning", "Random Forest"],
-      github: "#",
+      description: "Developed an intelligent system for hydroponic farming that collects environmental data from IoT sensors, processes it using machine learning models (97-99% accuracy), and provides crop recommendations and yield predictions. Implemented a Flask-based backend with MongoDB for data storage and a comprehensive REST API.",
+      technologies: ["Python", "Flask", "IoT", "MongoDB", "Machine Learning", "Random Forest"],
+      github: "https://github.com/Manith-s/HydroYield",
       image: "hydroponic-system.jpg"
     },
     {
-      title: "Bitcoin Price Prediction",
+      title: "CryptoForecast: Advanced Bitcoin Price Prediction System",
       period: "November 2021 - December 2021",
-      description: "Programmed a machine learning model using reinforcement learning and ensemble techniques to forecast Bitcoin price trends with 74% accuracy, leveraging time-series forecasting, regression analysis, and historical data to enhance financial insights and predictive performance.",
-      technologies: ["Python", "Reinforcement Learning", "Time-Series Analysis", "Data Visualization"],
-      github: "#",
+      description: "Built a comprehensive end-to-end machine learning pipeline for Bitcoin price prediction with 74% directional accuracy. Implemented multiple models including traditional ML, deep learning, ensemble methods, and reinforcement learning approaches. Created 100+ features through advanced feature engineering and interactive visualizations.",
+      technologies: ["Python", "Deep Learning", "Reinforcement Learning", "Time-Series Analysis", "Data Visualization", "Ensemble Methods"],
+      github: "https://github.com/Manith-s/CryptoForecast",
       image: "bitcoin-prediction.jpg"
+    },
+    {
+      title: "DataViz Hub: Business Intelligence & Analytics Portfolio",
+      period: "January 2024 - Present",
+      description: "Designed and developed interactive business intelligence dashboards using Tableau and Qlik to visualize complex datasets and provide actionable insights. Created customized visualizations for financial analytics, sales performance, market analysis, and operational KPIs that enhance data-driven decision making.",
+      technologies: ["Tableau", "Qlik", "SQL", "Data Analysis", "Business Intelligence", "Dashboard Design"],
+      github: "#",
+      tableau: "https://public.tableau.com/app/profile/manith.shashidhar/vizzes",
+      qlik: "https://jsgue17982vhpsi.us.qlikcloud.com/analytics/catalog?owned_by=you",
+      image: "data-viz.jpg"
     },
     {
       title: "University Course Scheduling System",
@@ -118,16 +128,42 @@ const Projects = () => {
                     ))}
                   </div>
                   
-                  <div className="mt-auto flex justify-center">
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-sm text-primary-400 hover:text-primary-300 transition-colors"
-                    >
-                      <Github size={16} />
-                      <span>Source Code</span>
-                    </a>
+                  <div className="mt-auto flex justify-center gap-4">
+                    {project.github && project.github !== "#" && (
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 text-sm text-primary-400 hover:text-primary-300 transition-colors"
+                      >
+                        <Github size={16} />
+                        <span>Source Code</span>
+                      </a>
+                    )}
+                    
+                    {project.tableau && (
+                      <a
+                        href={project.tableau}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 text-sm text-blue-400 hover:text-blue-300 transition-colors"
+                      >
+                        <BarChart2 size={16} />
+                        <span>Tableau</span>
+                      </a>
+                    )}
+                    
+                    {project.qlik && (
+                      <a
+                        href={project.qlik}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 text-sm text-green-400 hover:text-green-300 transition-colors"
+                      >
+                        <ExternalLink size={16} />
+                        <span>Qlik</span>
+                      </a>
+                    )}
                   </div>
                 </div>
               </div>
