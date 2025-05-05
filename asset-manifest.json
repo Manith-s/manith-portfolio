@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/manith-portfolio/static/css/main.4a0989c1.css",
-    "main.js": "/manith-portfolio/static/js/main.83f9374f.js",
+    "main.css": "/manith-portfolio/static/css/main.5ab65675.css",
+    "main.js": "/manith-portfolio/static/js/main.743b880d.js",
     "static/js/453.579ac091.chunk.js": "/manith-portfolio/static/js/453.579ac091.chunk.js",
     "index.html": "/manith-portfolio/index.html",
-    "main.4a0989c1.css.map": "/manith-portfolio/static/css/main.4a0989c1.css.map",
-    "main.83f9374f.js.map": "/manith-portfolio/static/js/main.83f9374f.js.map",
+    "main.5ab65675.css.map": "/manith-portfolio/static/css/main.5ab65675.css.map",
+    "main.743b880d.js.map": "/manith-portfolio/static/js/main.743b880d.js.map",
     "453.579ac091.chunk.js.map": "/manith-portfolio/static/js/453.579ac091.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.4a0989c1.css",
-    "static/js/main.83f9374f.js"
+    "static/css/main.5ab65675.css",
+    "static/js/main.743b880d.js"
   ]
 }
